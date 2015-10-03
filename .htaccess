@@ -1,0 +1,13 @@
+AddDefaultCharset UTF-8
+Options +MultiViews
+Options +FollowSymLinks
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^/http-bind
+RewriteRule ^(.*)$ http://chat.am:7070/$1 [P,QSA,L]
+
+#RewriteEngine On
+#RewriteRule http-bind/ http://chat.am:5281/[P]
